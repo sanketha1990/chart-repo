@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-demo
+data:
+  # property-like keys; each key maps to a simple value
+  player_initial_lives: {{ .Values.player}}
+  Zone: {{quote .Values.data.Zone}}
+  Region: {{quote .Values.data.Region}}
+  Test: {{upper .Values.test}}
+  Contact: {{ .Values.contact | default "1-8000-9999" | quote}}
+  {{- if eq .Values.data.Region "us-e"}}
+  ha:true 
+  {{- end }}
+
+

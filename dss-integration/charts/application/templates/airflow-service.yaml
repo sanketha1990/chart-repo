@@ -1,0 +1,15 @@
+{{- if .Values.services.airflowService.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name:  {{ .Values.application.name }}
+  labels:
+    app:  {{ .Values.application.name }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.application.ports.containerPort }}
+      name: {{ .Values.application.ports.name }}
+  selector:
+   app:  {{ .Values.application.name }}
+{{- end -}}

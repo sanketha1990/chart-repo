@@ -1,0 +1,40 @@
+namespace: helm-template
+airflow:
+  name: airflow-webserver
+  replicas: 1
+  image: docker.io/sankethacr/dss-airflow-image:v18
+  loadex: "n"
+  executor: Local
+  username: airflow
+  password: airflow
+  db: airflow
+  host: postgres
+  ports:
+    postgresPort: 5432
+    airflowPort: 8080
+    name: http
+  volumes:
+    basePath: "/home/aviral.varshney/Documents/airflow/dss-airflow-operators"
+  
+postgres:
+  name: postgres
+  image: postgres:9.6.14
+  replicas: 1
+  username: airflow
+  password: airflow
+  db: airflow
+  ports:
+    containerPort: 5432
+    name: http
+
+ingress:
+  name: airflow-ingress
+  host: helm.airflow.com
+
+services:
+  ingress:
+      enabled: true
+  airflow:
+      enabled: true
+  postgres:
+      enabled: true

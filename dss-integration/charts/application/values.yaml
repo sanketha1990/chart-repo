@@ -1,0 +1,28 @@
+namespace: helm-template
+application:
+  name: dss-airflow-service-service
+  image: 10.113.56.67/ngp-develop/dss-airflow-service-service:20210204121655
+  ports:
+    containerPort: 8080
+    name: http
+  volumeMounts:
+    configVolume: config-volume
+    configMountPath: /deployments/config
+    sharedVolume: shared-volume
+    sharedMountPath: /root/.ngp
+
+  environment:
+    servicePrecondition: "ngp-postgres:5432,ngp-keycloak:8080,ngp-common-services-service:8080"
+  volumes:
+    configProperties: dss-airflow-service-application-properties
+    claimName: shared-pv-claim
+
+ingress:
+  name: dss-airflow-service-ingress
+  path: /dss-airflow-service-service
+
+services:
+  ingressService:
+      enabled: true
+  airflowService:
+      enabled: true

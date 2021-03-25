@@ -1,0 +1,9 @@
+infra:
+  airflow:
+    replicas: 2
+
+
+application:
+  application:
+    name: test-name
+    replicas: 2
