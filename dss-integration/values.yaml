@@ -4,7 +4,7 @@ infra:
     image: docker.io/sankethacr/dss-airflow-image:v15
     replicas: 1
     volumes:
-      basePath: /C:/Workspace/Python/dss-airflow-operators
+      basePath: /home/subex/charts/stable/airflow-deployment/dss-airflow-operators
 
   postgres:
     image: postgres:9.6.14
