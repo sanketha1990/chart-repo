@@ -3,10 +3,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.dssClintApplication.name }}
+  namespace: {{ .Values.namespace }}
   labels:
     app: {{ .Values.dssClintApplication.name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.dssClintApplication.replicas }}
   selector:
     matchLabels:
       app: {{ .Values.dssClintApplication.name }}

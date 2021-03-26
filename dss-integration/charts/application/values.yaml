@@ -20,7 +20,7 @@ airflowWrapper:
   environment:
     servicePrecondition: "ngp-postgres:5432,ngp-keycloak:8080,ngp-common-services-service:8080"
   volumes:
-    configProperties: dss-airflow-service-application-properties
+    configProperties: airflow-wrapper-service-application-properties
     claimName: shared-pv-claim
 
   ingress:
@@ -30,6 +30,7 @@ airflowWrapper:
 dssClintApplication:
   name: data-science-studio-app-client
   image: 10.113.56.67/ngp-develop/data-science-studio-ui:20210324194515
+  replicas: 1
   ports:
     port: 80
     nodePort: 30110
@@ -39,11 +40,37 @@ dssClintApplication:
     mountPath: /usr/share/nginx/html/assets/conf/api.config.json
     subPath: api.config.json
   volumes:
-    configMapName: dss-client-api-config
+    configMapName: data-science-studio-api-config-v1
 
   ingress:
     name: dss-ui-ingress
     path: /data-science-studio-ui
+
+############################ DSS middle layer (service) #####################################
+dssServiceApplication:
+  name: data-science-studio-app-service
+  image: 10.113.56.67/ngp-develop/data-science-studio-service:20210325145819
+  replicas: 1
+  ports:
+    port: 8080
+    name: http
+  volumeMounts:
+    configName: config-volume
+    configMountPath:  /deployments/config
+    sharedName: shared-volume
+    sharedMountPath: /root/.ngp
+    uploadName: upload-volume
+    uploadMountPath: /upload
+  environment:
+    servicePrecondition: "ngp-postgres:5432,ngp-keycloak:8080,ngp-common-services-service:8080"
+  volumes:
+    configMapName: data-science-studio-application-properties-v1
+    sharedClaimName: shared-pv-claim
+    uploadClaimName: uploads-pv-claim
+
+  ingress:
+    name: data-science-studio-app-service-ingress
+    path: /data-science-studio-app-service
 
 ############################ Enable/Disable availabel services ##############################
 services:
@@ -51,7 +78,13 @@ services:
       enabled: true
   airflowWrapperService:
       enabled: true
+
   dssClientService:
       enabled: true
   dssClientIngress:
+      enabled: true
+
+  dssServiceService:
+      enabled: true
+  dssServiceIngress:
       enabled: true

@@ -5,6 +5,7 @@ infra:
     replicas: 1
     volumes:
       basePath: /C:/Workspace/Python/dss-airflow-operators
+
   postgres:
     image: postgres:9.6.14
     replicas: 1
@@ -14,5 +15,12 @@ application:
   airflowWrapper: 
     image: 10.113.56.67/ngp-develop/dss-airflow-service-service:test
     name: dss-airflow-wrapper
+    replicas: 1
+
+  dssClintApplication:
+    image: 10.113.56.67/ngp-develop/data-science-studio-ui:test
+    replicas: 1
+  dssServiceApplication:
+    image: 10.113.56.67/ngp-develop/data-science-studio-service:test
     replicas: 1
     
