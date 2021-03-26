@@ -12,6 +12,3 @@ spec:
       name: {{ .Values.airflow.ports.name }}
   selector:
    app: {{ .Values.airflow.name }}
-
-
-
