@@ -1,3 +1,14 @@
 apiVersion: v1
-entries: {}
-generated: "2021-03-26T17:04:52.9583552+05:30"
+entries:
+  dss-integration:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-03-26T17:16:07.20373+05:30"
+    description: A Helm chart for Kubernetes
+    digest: 8f3574367149c573ab5abb595a7f0aee9c6d38bb115df3141aa223e989c84ef1
+    name: dss-integration
+    type: application
+    urls:
+    - dss-integration-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-03-26T17:16:07.2007338+05:30"
