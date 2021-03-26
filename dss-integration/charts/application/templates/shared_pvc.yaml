@@ -1,0 +1,13 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: '{{ .Values.volume.shared.claimName }}'
+  namespace: '{{ .Values.namespace }}'
+  labels:
+    volume: '{{ .Values.volume.shared.claimName }}'
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{ .Values.volume.shared.sizeInGi }}Gi

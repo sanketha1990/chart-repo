@@ -1,5 +1,11 @@
+########################### Common service ########################################
 namespace: helm-template
-application:
+volume:
+  shared:
+    claimName: shared-pvc 
+    sizeInGi: 1
+########################### Airflow wrapper ########################################
+airflowWrapper:
   name: dss-airflow-service-service
   image: 10.113.56.67/ngp-develop/dss-airflow-service-service:20210204121655
   ports:
@@ -17,12 +23,35 @@ application:
     configProperties: dss-airflow-service-application-properties
     claimName: shared-pv-claim
 
-ingress:
-  name: dss-airflow-service-ingress
-  path: /dss-airflow-service-service
+  ingress:
+    name: dss-airflow-service-ingress
+    path: /dss-airflow-service
+############################ DSS UI (Client) service ########################################
+dssClintApplication:
+  name: data-science-studio-app-client
+  image: 10.113.56.67/ngp-develop/data-science-studio-ui:20210324194515
+  ports:
+    port: 80
+    nodePort: 30110
+    name: http
+  volumeMounts:
+    name: config-volume
+    mountPath: /usr/share/nginx/html/assets/conf/api.config.json
+    subPath: api.config.json
+  volumes:
+    configMapName: dss-client-api-config
 
+  ingress:
+    name: dss-ui-ingress
+    path: /data-science-studio-ui
+
+############################ Enable/Disable availabel services ##############################
 services:
-  ingressService:
+  airflowWrapperIngress:
       enabled: true
-  airflowService:
+  airflowWrapperService:
+      enabled: true
+  dssClientService:
+      enabled: true
+  dssClientIngress:
       enabled: true

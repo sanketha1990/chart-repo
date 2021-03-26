@@ -1,9 +1,18 @@
 infra:
+  namespace: helm-template
   airflow:
-    replicas: 2
-
+    image: docker.io/sankethacr/dss-airflow-image:v18
+    replicas: 1
+    volumes:
+      basePath: /C:/Workspace/Python/dss-airflow-operators
+  postgres:
+    image: postgres:9.6.14
+    replicas: 1
 
 application:
-  application:
-    name: test-name
-    replicas: 2
+  namespace: helm-template
+  airflowWrapper: 
+    image: 10.113.56.67/ngp-develop/dss-airflow-service-service:test
+    name: dss-airflow-wrapper
+    replicas: 1
+    

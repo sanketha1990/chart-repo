@@ -1,0 +1,41 @@
+{{- if .Values.services.airflowWrapperService.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.airflowWrapper.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.airflowWrapper.name }}
+spec:
+  replicas: {{ .Values.airflowWrapper.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.airflowWrapper.name }}
+  template:
+    metadata:      
+      labels:
+        app: {{ .Values.airflowWrapper.name }}
+    spec:
+      containers:
+        - name: {{ .Values.airflowWrapper.name }}
+          image: {{ .Values.airflowWrapper.image }}
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: {{ .Values.airflowWrapper.ports.containerPort }}
+              name: {{ .Values.airflowWrapper.ports.name }}
+          volumeMounts:
+            - name: {{ .Values.airflowWrapper.volumeMounts.configVolume }}
+              mountPath: {{ .Values.airflowWrapper.volumeMounts.configMountPath }}
+            - name: {{ .Values.airflowWrapper.volumeMounts.sharedVolume }}
+              mountPath: {{ .Values.airflowWrapper.volumeMounts.sharedMountPath }}
+          env:
+          - name: SERVICE_PRECONDITION
+            value: {{ .Values.airflowWrapper.environment.servicePrecondition | quote }}
+      volumes:
+        - name: {{ .Values.airflowWrapper.volumeMounts.configVolume }}
+          configMap:
+            name: {{ .Values.airflowWrapper.volumes.configProperties }}
+        - name: {{ .Values.airflowWrapper.volumeMounts.sharedVolume }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.airflowWrapper.volumes.claimName }}
+{{- end -}}
