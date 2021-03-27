@@ -1,0 +1,50 @@
+==================================
+Helm chart for airflow
+===================================
+1)helm repo add bitnami
+
+2)helm install airflow --namespace kube-airflow bitnami/airflow
+
+3)Airflow dashboard:  kubectl port-forward svc/airflow-webserver 8080:8080 --namespace kube-airflow
+
+4)kubectl port-forward svc/airflow-webserver 8888:8080 --namespace kube-airflow
+
+5)Change namespace : kubectl config set-context --current --namespace= kube-airflow
+
+6)kubectl delete pod <pod_name> -n <namespace> --grace-period 0 --force
+
+7)Use '' to see all of the containers in this pod.
+
+=====================================
+Minikube local mounting
+=====================================
+minikube start --hyperv-virtual-switch "My Virtual Switch" --v=4 --mount --mount-string="/home/aviral.varshney/Documents/airflow/dss-airflow-operators/:/home/aviral.varshney/Documents/airflow/dss-airflow-operators/
+
+
+minikube start --hyperv-virtual-switch "My Virtual Switch" --v=4 --mount --mount-string="/home/aviral.varshney/Documents/airflow/dss-airflow-operators/:/home/aviral.varshney/Documents/airflow/dss-airflow-operators/"
+===================================================
+Installation with custom image(dss-airflow-image)
+===================================================
+
+1)helm install test-af --namespace kube-airflow bitnami/airflow -f values.yaml
+
+=======================
+
+======================================
+Ingress
+======================================
+sudo vi /etc/hosts
+add IP and path
+
+kubectl get ingress -n kube-airflow --watch
+
+curl http://dss.airflow.com/
+
+
+          env:
+            - name: POSTGRES_DB
+              value: db0
+            - name: POSTGRES_USER
+              value: mendix
+            - name: POSTGRES_PASSWORD
+              value: mendix

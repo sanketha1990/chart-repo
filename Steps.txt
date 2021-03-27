@@ -1,0 +1,8 @@
+1. git clone https://10.113.102.47/ngp/dss-airflow-operators.git
+2. Go to directory - dss-airflow-operators
+3. git checkout develop
+4. chmod 777 *
+5. chmod 777 script/entrypoint.sh
+6. docker build -t dss-airflow-image .
+7. docker-compose -f docker-compose-LocalExecutor.yml up -d
+
