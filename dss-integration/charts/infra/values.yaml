@@ -16,6 +16,10 @@ airflow:
   volumes:
     basePath: "/home/aviral.varshney/Documents/airflow/dss-airflow-operators"
   
+  ingress:
+    name: airflow-ingress
+    path: /dss-airflow
+  
 postgres:
   name: postgres
   image: postgres:9.6.14
@@ -26,10 +30,6 @@ postgres:
   ports:
     containerPort: 5432
     name: http
-
-ingress:
-  name: airflow-ingress
-  host: helm.airflow.com
 
 services:
   ingress:
