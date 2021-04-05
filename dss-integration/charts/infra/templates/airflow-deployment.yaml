@@ -19,10 +19,7 @@ spec:
       volumes:
       - name: config-volume
         hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/config/airflow.cfg
-      - name: entry-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/script/entrypoint.sh
+          path: {{ .Values.airflow.volumes.basePath }}/config/
       - name: dags-volume
         hostPath:
           path: {{ .Values.airflow.volumes.basePath }}/dags/
@@ -72,9 +69,19 @@ spec:
             value: {{ .Values.airflow.password }}
           - name: POSTGRES_DB
             value: {{ .Values.airflow.db }}
+          - name: SECURITY__ADMIN_USERNAME
+            value: {{ .Values.airflow.security.username }}
+          - name: SECURITY__ADMIN_FIRSTNAME
+            value: {{ .Values.airflow.security.firstname }}
+          - name: SECURITY__ADMIN_LASTNAME
+            value: {{ .Values.airflow.security.lastname }}
+          - name: SECURITY__ADMIN_EMAIL
+            value: {{ .Values.airflow.security.email }}
+          - name: SECURITY__ADMIN_PASSWORD
+            value: {{ .Values.airflow.security.password }}
 
           volumeMounts:
-          - mountPath: "/usr/local/airflow/airflow.cfg"
+          - mountPath: "/usr/local/airflow"
             name: config-volume
           - mountPath: "/usr/local/airflow/airflow/logs"
             name: logs-volume
