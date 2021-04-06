@@ -25,7 +25,7 @@ airflowWrapper:
 
   ingress:
     name: dss-airflow-service-ingress
-    path: /dss-airflow-service
+    path: dss-airflow-service
 ############################ DSS UI (Client) service ########################################
 dssClintApplication:
   name: data-science-studio-app-client
@@ -70,7 +70,7 @@ dssServiceApplication:
 
   ingress:
     name: data-science-studio-app-service-ingress
-    path: /data-science-studio-app-service
+    path: data-science-studio-app-service
 
 ############################ Enable/Disable availabel services ##############################
 services:

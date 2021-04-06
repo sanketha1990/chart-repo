@@ -11,7 +11,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: {{ .Values.dssServiceApplication.ingress.path }}
+      - path: /{{ .Values.dssServiceApplication.ingress.path }}
         backend:
           serviceName: {{ .Values.dssServiceApplication.name }}
           servicePort: {{ .Values.dssServiceApplication.ports.port }}

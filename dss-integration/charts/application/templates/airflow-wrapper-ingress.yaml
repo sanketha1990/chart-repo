@@ -11,7 +11,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: {{ .Values.airflowWrapper.ingress.path }}
+      - path: /{{ .Values.airflowWrapper.ingress.path }}
         backend:
           serviceName: {{ .Values.airflowWrapper.name }}
           servicePort: {{ .Values.airflowWrapper.ports.name }}
