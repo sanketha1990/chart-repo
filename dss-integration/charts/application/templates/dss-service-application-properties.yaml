@@ -52,7 +52,7 @@ data:
     ################################ Keycloak Properties ########################################
 
     keycloak.realm=sys-testing
-    keycloak.resource=data-science-studio-service-v1
+    keycloak.resource=data-science-studio-service-v2
     keycloak.auth-server-url=http://10.113.104.24:31353/auth
     keycloak.ssl-required=external
     keycloak.public-client=true

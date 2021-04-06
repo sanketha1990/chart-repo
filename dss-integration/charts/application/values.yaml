@@ -75,9 +75,9 @@ dssServiceApplication:
 ############################ Enable/Disable availabel services ##############################
 services:
   airflowWrapperIngress:
-      enabled: true
+      enabled: false
   airflowWrapperService:
-      enabled: true
+      enabled: false
 
   dssClientService:
       enabled: true
