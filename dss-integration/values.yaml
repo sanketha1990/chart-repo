@@ -8,6 +8,14 @@ infra:
     image: postgres:9.6.14
     replicas: 1
 
+  services:
+    ingress:
+        enabled: true
+    airflow:
+        enabled: true
+    postgres:
+        enabled: true
+
 application:
   namespace: helm-template
   airflowWrapper: 
@@ -21,4 +29,20 @@ application:
   dssServiceApplication:
     image: 10.113.56.67/ngp-develop/data-science-studio-service:20210325145819
     replicas: 1
+  
+  services:
+    airflowWrapperIngress:
+        enabled: true
+    airflowWrapperService:
+        enabled: true
+
+    dssClientService:
+        enabled: true
+    dssClientIngress:
+        enabled: true
+
+    dssServiceService:
+        enabled: true
+    dssServiceIngress:
+        enabled: true
     

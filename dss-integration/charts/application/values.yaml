@@ -72,12 +72,12 @@ dssServiceApplication:
     name: data-science-studio-app-service-ingress
     path: data-science-studio-app-service
 
-############################ Enable/Disable availabel services ##############################
+############################ Enable/Disable application services ##############################
 services:
   airflowWrapperIngress:
-      enabled: false
+      enabled: true
   airflowWrapperService:
-      enabled: false
+      enabled: true
 
   dssClientService:
       enabled: true
