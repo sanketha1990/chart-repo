@@ -1,3 +1,4 @@
+{{- if .Values.services.airflowWrapperService.enabled -}}
 apiVersion: v1
 data:
   application.properties: |-
@@ -97,5 +98,5 @@ data:
 
 kind: ConfigMap
 metadata:
-  name: dss-airflow-service-application-properties
-  
+  name: dss-airflow-service-application-properties 
+{{- end -}}

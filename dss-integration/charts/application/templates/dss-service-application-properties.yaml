@@ -1,3 +1,4 @@
+{{- if .Values.services.dssServiceService.enabled -}}
 apiVersion: v1
 data:
   application.properties: |-
@@ -109,3 +110,4 @@ kind: ConfigMap
 metadata:
   name: data-science-studio-application-properties-v1
 
+{{- end -}}

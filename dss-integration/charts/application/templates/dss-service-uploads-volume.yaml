@@ -1,3 +1,4 @@
+{{- if .Values.services.dssServiceService.enabled -}}
 apiVersion: v1
 kind: PersistentVolume            # Create a PersistentVolume
 metadata:
@@ -25,3 +26,4 @@ spec:                              # Access mode and resource limits
   resources:
     requests:
       storage: 1Gi
+{{- end -}}
