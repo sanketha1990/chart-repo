@@ -11,7 +11,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: {{ .Values.dssClintApplication.ingress.name }}
+      - path: /{{ .Values.dssClintApplication.ingress.name }}
         backend:
           serviceName: {{ .Values.dssClintApplication.name }}
           servicePort: {{ .Values.dssClintApplication.ports.name }}

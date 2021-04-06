@@ -33,18 +33,18 @@ dssClintApplication:
   replicas: 1
   ports:
     port: 80
-    nodePort: 30110
+    nodePort: 30111
     name: http
   volumeMounts:
     name: config-volume
     mountPath: /usr/share/nginx/html/assets/conf/api.config.json
     subPath: api.config.json
   volumes:
-    configMapName: data-science-studio-api-config-v1
+    configMapName: data-science-studio-api-config-v2
 
   ingress:
     name: dss-ui-ingress
-    path: /data-science-studio-ui
+    path: data-science-studio-ui
 
 ############################ DSS middle layer (service) #####################################
 dssServiceApplication:
