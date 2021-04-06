@@ -10,6 +10,7 @@ spec:
   type: ClusterIP
   ports:
     - port: {{ .Values.airflow.ports.airflowPort }}
+      nodePort: 30222
       name: {{ .Values.airflow.ports.name }}
   selector:
    app: {{ .Values.airflow.name }}

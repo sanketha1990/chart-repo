@@ -2,7 +2,7 @@ namespace: helm-template
 airflow:
   name: airflow-webserver
   replicas: 1
-  image: docker.io/sankethacr/dss-airflow-image:v20
+  image: docker.io/sankethacr/dss-airflow-image:v25
   loadex: "n"
   executor: Local
   username: airflow
@@ -14,8 +14,8 @@ airflow:
     email: nitin.j@subex.com
     password: airflow
 
-  db: airflow
-  host: postgres
+  db: airflowDB
+  host: postgres-v1
   ports:
     postgresPort: 5432
     airflowPort: 8080
@@ -28,12 +28,12 @@ airflow:
     path: /dss-airflow
   
 postgres:
-  name: postgres
+  name: postgres-v1
   image: postgres:9.6.14
   replicas: 1
   username: airflow
   password: airflow
-  db: airflow
+  db: airflowDB
   ports:
     containerPort: 5432
     name: http
