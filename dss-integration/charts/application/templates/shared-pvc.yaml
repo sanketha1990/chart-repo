@@ -1,0 +1,14 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: shared-pv-claim
+  namespace: {{ .Values.namespae }}
+  labels:
+    app: ngp
+spec:
+  storageClassName: nfs-provisioner
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
