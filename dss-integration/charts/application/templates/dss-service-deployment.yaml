@@ -30,9 +30,7 @@ spec:
               mountPath: {{ .Values.dssServiceApplication.volumeMounts.sharedMountPath }}
             - name: {{ .Values.dssServiceApplication.volumeMounts.uploadName }}
               mountPath: {{ .Values.dssServiceApplication.volumeMounts.uploadMountPath }}
-          env:
-          - name: SERVICE_PRECONDITION
-            value: {{ .Values.dssServiceApplication.environment.servicePrecondition | quote }}
+              
       volumes:
         - name: {{ .Values.dssServiceApplication.volumeMounts.configName }}
           configMap:

@@ -28,9 +28,7 @@ spec:
               mountPath: {{ .Values.airflowWrapper.volumeMounts.configMountPath }}
             - name: {{ .Values.airflowWrapper.volumeMounts.sharedVolume }}
               mountPath: {{ .Values.airflowWrapper.volumeMounts.sharedMountPath }}
-          env:
-          - name: SERVICE_PRECONDITION
-            value: {{ .Values.airflowWrapper.environment.servicePrecondition | quote }}
+              
       volumes:
         - name: {{ .Values.airflowWrapper.volumeMounts.configVolume }}
           configMap:
