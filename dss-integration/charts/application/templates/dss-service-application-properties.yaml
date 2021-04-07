@@ -82,7 +82,7 @@ data:
     ngp.register.enabled=true
     ngp.register.service.id=data-science-studio-app-v1
     ngp.register.service.name=Data Science Studio App V1
-    ngp.register.service.url=http://10.113.104.24:30110/
+    ngp.register.service.url=http://10.113.104.24:30111/
     ngp.register.service.description=Data Science Studio App V1
     ngp.register.service.create.default.users=true
 
