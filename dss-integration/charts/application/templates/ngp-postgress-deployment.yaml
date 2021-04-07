@@ -23,6 +23,8 @@ spec:
               name: http
           
           env:
+          - name: POSTGRES_DB
+            value: datasciencestudio
           - name: POSTGRES_USER
             value: datasciencestudio
           - name: POSTGRES_PASSWORD

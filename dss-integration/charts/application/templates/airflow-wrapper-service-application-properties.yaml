@@ -21,9 +21,9 @@ data:
 
     ################################ Database Properties ######################################
 
-    spring.datasource.url=jdbc:postgresql://ngp-postgres:5432/dssairflowservice
-    spring.datasource.username=dssairflowservice
-    spring.datasource.password=dssairflowservice
+    spring.datasource.url=jdbc:postgresql://ngp-postgres:5432/datasciencestudio
+    spring.datasource.username=datasciencestudio
+    spring.datasource.password=datasciencestudio
     spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
     ###########################################################################################
 
