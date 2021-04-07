@@ -88,9 +88,9 @@ spec:
             name: config-volume
           - mountPath: "/entrypoint.sh"
             name: script-volume
-          - mountPath: "/usr/local/airflow/airflow/logs"
+          - mountPath: "/usr/local/airflow/logs"
             name: logs-volume
-          - mountPath: "/usr/local/airflow/airflow/plugins"
+          - mountPath: "/usr/local/airflow/plugins"
             name: plugins-volume
           - mountPath: "/usr/local/airflow/dags"
             name: dags-volume
