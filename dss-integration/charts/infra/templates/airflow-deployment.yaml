@@ -19,10 +19,10 @@ spec:
       volumes:
       - name: config-volume
         hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/config/
+          path: {{ .Values.airflow.volumes.basePath }}/config/airflow.cfg
       - name: script-volume
         hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/script/
+          path: {{ .Values.airflow.volumes.basePath }}/script/entrypoint.sh
       - name: dags-volume
         hostPath:
           path: {{ .Values.airflow.volumes.basePath }}/dags/
@@ -84,9 +84,9 @@ spec:
             value: {{ .Values.airflow.security.password }}
 
           volumeMounts:
-          - mountPath: "/usr/local/airflow/config"
+          - mountPath: "/usr/local/airflow/airflow.cfg"
             name: config-volume
-          - mountPath: "/usr/local/airflow/script"
+          - mountPath: "/entrypoint.sh"
             name: script-volume
           - mountPath: "/usr/local/airflow/airflow/logs"
             name: logs-volume
