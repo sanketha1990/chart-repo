@@ -51,7 +51,7 @@ data:
     ################################ Keycloak Properties ########################################
 
     keycloak.realm=sys-testing
-    keycloak.resource=dss-airflow-service-service
+    keycloak.resource=dss-airflow-service
     keycloak.auth-server-url=http://10.113.104.24:31353/auth
     keycloak.ssl-required=external
     keycloak.public-client=true
@@ -70,7 +70,7 @@ data:
     ################################ NGP Application Registration Properties ###############################
 
     ngp.register.enabled=true
-    ngp.register.service.id=dss-airflow-service-service
+    ngp.register.service.id=dss-airflow-service
     ngp.register.service.name=Dss Airflow Service Service
     ngp.register.service.url=http://10.113.104.24:30109/
     ngp.register.service.description=Dss Airflow Service
@@ -85,7 +85,7 @@ data:
     ngp.register.force.delete=false
     
     ngp.security.enabled=false
-    server.servlet.context-path=/dss-airflow-service-service
+    server.servlet.context-path=/dss-airflow-service
     
     ngp.airflow.apiservice.url=http://10.113.113.95:8080/api/experimental/
     ngp.airflow.template.path=src/main/resources/template

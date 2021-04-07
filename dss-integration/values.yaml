@@ -1,7 +1,7 @@
 infra:
   namespace: helm-template
   airflow:
-    image: docker.io/sankethacr/dss-airflow-image:v25
+    image: docker.io/sankethacr/dss-airflow-image:v28
     replicas: 1
 
   postgres:

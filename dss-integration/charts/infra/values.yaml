@@ -2,7 +2,7 @@ namespace: helm-template
 airflow:
   name: airflow-webserver
   replicas: 1
-  image: docker.io/sankethacr/dss-airflow-image:v25
+  image: docker.io/sankethacr/dss-airflow-image:v28
   loadex: "n"
   executor: Local
   username: airflow
