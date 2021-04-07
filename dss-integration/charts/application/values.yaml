@@ -18,7 +18,7 @@ airflowWrapper:
     sharedMountPath: /root/.ngp
 
   environment:
-    servicePrecondition: "ngp-postgres:5432,ngp-keycloak:8080,ngp-common-services-service:8080"
+    servicePrecondition: "ngp-postgres:5432"
   volumes:
     configProperties: dss-airflow-service-application-properties
     claimName: shared-pv-claim
@@ -62,7 +62,7 @@ dssServiceApplication:
     uploadName: upload-volume
     uploadMountPath: /upload
   environment:
-    servicePrecondition: "ngp-postgres:5432,ngp-keycloak:8080,ngp-common-services-service:8080"
+    servicePrecondition: "ngp-postgres:5432"
   volumes:
     configMapName: data-science-studio-application-properties-v1
     sharedClaimName: shared-pv-claim
