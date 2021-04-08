@@ -16,43 +16,35 @@ data:
     spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
     spring.jpa.properties.hibernate.format_sql=false
     ###########################################################################################
-
-
-
     ################################ Database Properties ######################################
 
-    spring.datasource.url=jdbc:postgresql://ngp-postgres:5432/datasciencestudio
-    spring.datasource.username=datasciencestudio
-    spring.datasource.password=datasciencestudio
-    spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+    #spring.datasource.url=jdbc:postgresql://ngp-postgres:9001/dssairflowservice
+    #spring.datasource.username=dssairflowservice
+    #spring.datasource.password=dssairflowservice
+    #spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
     ###########################################################################################
 
-    ############################### oracle Properties ############################
-   
-    spring.oracle.url=
-    spring.oracle.username=
-    spring.oracle.password=
 
 
     ################################ Flyway Properties ########################################
 
-    spring.flyway.locations=classpath:/flyway/migration
-    spring.flyway.url=jdbc:postgresql://ngp-postgres:5432/datasciencestudio
-    spring.flyway.schemas=public
-    spring.flyway.user=datasciencestudio
-    spring.flyway.password=datasciencestudio
-    spring.flyway.baselineVersion=0.0.1
-    spring.flyway.baselineOnMigrate=false
-    spring.flyway.enabled=true
-    spring.flyway.runFlyWay.afterJPA=true
-    ##########################################################################################
+    #spring.flyway.locations=classpath:/flyway/migration
+    #spring.flyway.url=jdbc:postgresql://ngp-postgres:9001/dssairflowservice
+    #spring.flyway.schemas=public
+    #spring.flyway.user=dssairflowservice
+    #spring.flyway.password=dssairflowservice
+    #spring.flyway.baselineVersion=0.0.1
+    #spring.flyway.baselineOnMigrate=false
+    spring.flyway.enabled=false
+    #spring.flyway.runFlyWay.afterJPA=true
 
+    ##########################################################################################
 
     ################################ Keycloak Properties ########################################
 
-    keycloak.realm=sys-testing
-    keycloak.resource=dss-airflow-service
-    keycloak.auth-server-url=http://10.113.104.24:31353/auth
+    keycloak.realm=ngp
+    keycloak.resource=dss-airflow-service-service
+    keycloak.auth-server-url=http://ngp-keycloak:8090/auth
     keycloak.ssl-required=external
     keycloak.public-client=true
     keycloak.bearer-only=true
@@ -60,36 +52,53 @@ data:
     keycloak.cors=true
     keycloak.use-resource-role-mappings=true
 
-    ##########################################################################################
-
-    ngp.register_server.token_uri=http://ngp-keycloak:8080/auth/realms/sys-testing/protocol/openid-connect/token
-    ngp.register_server.client_id=common-services-apiservice
-    ngp.common-services.apiservice.url=http://ngp-common-services-service:8080
-
-
     ################################ NGP Application Registration Properties ###############################
 
-    ngp.register.enabled=true
-    ngp.register.service.id=dss-airflow-service
-    ngp.register.service.name=Dss Airflow Service Service
-    ngp.register.service.url=http://10.113.104.24:30109/
-    ngp.register.service.description=Dss Airflow Service
-    ngp.register.service.create.default.users=true
+    ngp.common-services.apiservice.url=http://common-services-service:8081
 
-    ngp.register.apiservice.enabled=false
+    ngp.register.enabled=true
+    ngp.register.service.id=dss-airflow-service-service
+    ngp.register.service.name=Dss Airflow Service Service
+    ngp.register.service.url=http://dss-airflow-service-app:4200/
+    ngp.register.service.description=Dss Airflow Service Service
+    ngp.register.service.create.default.users=false
+
+    ngp.register.apiservice.enabled=true
     ngp.register.apiservice.id=dss-airflow-service-apiservice
     ngp.register.apiservice.name=Dss Airflow Service API Service
     ngp.register.apiservice.description=Dss Airflow Service API Service
     ngp.register.apiservice.roles=configuration_view
 
     ngp.register.force.delete=false
-    
-    ngp.security.enabled=false
-    server.servlet.context-path=/dss-airflow-service
-    
-    ngp.airflow.apiservice.url=http://10.113.113.95:8080/api/experimental/
-    ngp.airflow.template.path=src/main/resources/template
-    ngp.airflow.dag.path=src/main/resources/dagfiles
+
+    ###############################Log Properties ##################################################
+    logging.pattern.console= %clr(%d{${LOG_DATEFORMAT_PATTERN:yyyy-MM-dd HH:mm:ss.SSS}}){yellow} %clr(%marker ${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} [%F] [%M] [%C]:%L %clr(---){faint} %clr([%t]){faint} ${hostName} %clr(%logger{39}){cyan} %clr(:){faint} %m %throwable{short.className} %X{correlationId} %X{userId} %X{sessionId} %X{serviceName} %n%n
+    ################################## Airflow ########################
+    upload.directory=/data
+    ngp.airflow.service.logs=/logs/
+    ngp.airflow.service.output=/output/
+    ngp.airflow.service.modelrepository=/modelrepository/
+    ngp.airflow.service.data=/data/
+    ################ airflow end #####################################
+    ##############################################TEMPLATE PROPERTIES#############################
+    ngp.airflow.template.path=/template
+    ngp.airflow.template.name=dag.vm
+    ngp.airflow.template.output=/dags/
+    ngp.airflow.template.fileKey=operatorFileName
+    ngp.airflow.template.classKey=operatorClassName
+    ngp.airflow.template.groupKey=group
+    ngp.airflow.template.daskClient=10.113.113.95:8786
+    ##############################################################################################
+    ###########################AIRFLOW API PROPERTIES#############################################
+    ngp.airflow.apiservice.url=http://10.113.104.24:30222/api/v1/
+    ngp.airflow.apiservice.user=airflow
+    ngp.airflow.apiservice.password=airflow
+    ngp.airflow.apiservice.dag=/dags/{dag_id}
+    ngp.airflow.apiservice.dagrun=/dags/{dag_id}/dagRuns
+    ngp.airflow.apiservice.dagstatus=/dags/{dag_id}/dagRuns/{dag_run_id}
+    ##############################################################################################
+    spring.servlet.multipart.max-file-size=200MB
+    spring.servlet.multipart.max-request-size=200MB
 
     ###############################Logproperties##################################################
 
