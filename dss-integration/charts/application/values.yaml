@@ -70,7 +70,7 @@ dssServiceApplication:
 
   ingress:
     name: data-science-studio-app-service-ingress
-    path: data-science-studio-app-service
+    path: dss-app-service
 
 ############################ Enable/Disable application services ##############################
 services:

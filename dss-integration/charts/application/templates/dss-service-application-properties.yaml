@@ -21,7 +21,7 @@ data:
 
     ################################ Database Properties ######################################
 
-    spring.datasource.url=jdbc:postgresql://ngp-postgres-v1:5432/datasciencestudio
+    spring.datasource.url=jdbc:postgresql://ngp-postgres:5432/datasciencestudio
     spring.datasource.username=datasciencestudio
     spring.datasource.password=datasciencestudio
     spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
@@ -37,7 +37,7 @@ data:
     ################################ Flyway Properties ########################################
 
     spring.flyway.locations=classpath:/flyway/migration
-    spring.flyway.url=jdbc:postgresql://ngp-postgres-v1:5432/datasciencestudio
+    spring.flyway.url=jdbc:postgresql://ngp-postgres:5432/datasciencestudio
     spring.flyway.schemas=public
     spring.flyway.user=datasciencestudio
     spring.flyway.password=datasciencestudio
