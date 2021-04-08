@@ -51,7 +51,7 @@ data:
 
     ################################ Keycloak Properties ########################################
 
-    keycloak.realm=sys-testing
+    keycloak.realm=helm-template
     keycloak.resource=data-science-studio-service-v2
     keycloak.auth-server-url=http://10.113.104.24:31353/auth
     keycloak.ssl-required=external
@@ -63,7 +63,7 @@ data:
 
     ##########################################################################################
 
-    ngp.register_server.token_uri=http://ngp-keycloak:8080/auth/realms/sys-testing/protocol/openid-connect/token
+    ngp.register_server.token_uri=http://ngp-keycloak:8080/auth/realms/helm-template/protocol/openid-connect/token
     ngp.register_server.client_id=common-services-apiservice
     ngp.common-services.apiservice.url=http://ngp-common-services-service:8080
 

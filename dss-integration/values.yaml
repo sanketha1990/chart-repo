@@ -24,7 +24,7 @@ application:
     replicas: 1
 
   dssClintApplication:
-    image: 10.113.56.67/ngp-develop/data-science-studio-ui:20210324194515
+    image: docker.io/sankethacr/data-science-studio-ui:v1
     replicas: 1
   dssServiceApplication:
     image: 10.113.56.67/ngp-develop/data-science-studio-service:20210325145819
