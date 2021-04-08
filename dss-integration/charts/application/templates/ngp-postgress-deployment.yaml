@@ -15,7 +15,7 @@ spec:
         app: ngp-postgres
     spec:
       containers:
-        - name: ngp-postgres
+        - name: ngp-postgres-v1
           image: postgres:9.6.14
           imagePullPolicy: "IfNotPresent"
           ports:

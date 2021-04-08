@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ngp-postgres
+  name: ngp-postgres-v1
   labels:
-    app: ngp-postgres
+    app: ngp-postgres-v1
 spec:
   type: ClusterIP
   ports:
     - port: 5432
       name: http
   selector:
-   app: ngp-postgres
+   app: ngp-postgres-v1
 
 
 
