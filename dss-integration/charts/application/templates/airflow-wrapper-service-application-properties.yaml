@@ -37,10 +37,10 @@ data:
     ################################ Flyway Properties ########################################
 
     spring.flyway.locations=classpath:/flyway/migration
-    spring.flyway.url=jdbc:postgresql://ngp-postgres:5432/dssairflowservice
+    spring.flyway.url=jdbc:postgresql://ngp-postgres:5432/datasciencestudio
     spring.flyway.schemas=public
-    spring.flyway.user=dssairflowservice
-    spring.flyway.password=dssairflowservice
+    spring.flyway.user=datasciencestudio
+    spring.flyway.password=datasciencestudio
     spring.flyway.baselineVersion=0.0.1
     spring.flyway.baselineOnMigrate=false
     spring.flyway.enabled=true
