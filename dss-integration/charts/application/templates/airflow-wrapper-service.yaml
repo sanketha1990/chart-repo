@@ -7,9 +7,10 @@ metadata:
   labels:
     app:  {{ .Values.airflowWrapper.name }}
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: {{ .Values.airflowWrapper.ports.containerPort }}
+      nodePort: 30333
       name: {{ .Values.airflowWrapper.ports.name }}
   selector:
    app:  {{ .Values.airflowWrapper.name }}
