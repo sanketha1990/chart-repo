@@ -19,7 +19,7 @@ infra:
 application:
   namespace: helm-template
   airflowWrapper: 
-    image: docker.io/sankethacr/dss-airflow-wrapper:v3
+    image: docker.io/sankethacr/dss-airflow-wrapper:v6
     name: dss-airflow-wrapper
     replicas: 1
 
