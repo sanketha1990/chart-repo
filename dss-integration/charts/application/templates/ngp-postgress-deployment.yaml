@@ -19,7 +19,7 @@ spec:
           image: postgres:9.6.14
           imagePullPolicy: "IfNotPresent"
           ports:
-            - containerPort: 9001
+            - containerPort: 5432
               name: http
           
           env:
