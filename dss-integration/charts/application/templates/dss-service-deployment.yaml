@@ -30,6 +30,9 @@ spec:
               mountPath: {{ .Values.dssServiceApplication.volumeMounts.sharedMountPath }}
             - name: {{ .Values.dssServiceApplication.volumeMounts.uploadName }}
               mountPath: {{ .Values.dssServiceApplication.volumeMounts.uploadMountPath }}
+          env:
+          - name: SERVICE_PRECONDITION
+            value: "ngp-postgres:5432,ngp-keycloak:8080,ngp-common-services-service:8080"
       volumes:
         - name: {{ .Values.dssServiceApplication.volumeMounts.configName }}
           configMap:
