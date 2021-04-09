@@ -18,7 +18,7 @@ data:
     ###########################################################################################
     ################################ Database Properties ######################################
 
-    #spring.datasource.url=jdbc:postgresql://ngp-postgres:9001/dssairflowservice
+    #spring.datasource.url=jdbc:postgresql://ngp-postgres:9001/datasciencestudiodb
     #spring.datasource.username=dssairflowservice
     #spring.datasource.password=dssairflowservice
     #spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
