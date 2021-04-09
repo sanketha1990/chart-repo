@@ -49,17 +49,17 @@ spec:
             claimName: {{ .Values.airflowWrapper.volumes.claimName }}
         - name: dags-volume
           hostPath:
-            path: {{ .Values.airflow.volumes.basePath }}/dags/
+            path: {{ .Values.airflowWrapper.volumes.basePath }}/dags/
         - name: data-volume
           hostPath:
-            path: {{ .Values.airflow.volumes.basePath }}/data/
+            path: {{ .Values.airflowWrapper.volumes.basePath }}/data/
         - name: logs-volume
           hostPath:
-            path: {{ .Values.airflow.volumes.basePath }}/logs/
+            path: {{ .Values.airflowWrapper.volumes.basePath }}/logs/
         - name: modelrepository-volume
           hostPath:
-            path: {{ .Values.airflow.volumes.basePath }}/modelrepository/
+            path: {{ .Values.airflowWrapper.volumes.basePath }}/modelrepository/
         - name: output-volume
           hostPath:
-            path: {{ .Values.airflow.volumes.basePath }}/output/
+            path: {{ .Values.airflowWrapper.volumes.basePath }}/output/
 {{- end -}}

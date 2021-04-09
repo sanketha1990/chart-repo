@@ -67,6 +67,7 @@ dssServiceApplication:
     configMapName: data-science-studio-application-properties-v1
     sharedClaimName: shared-pv-claim
     uploadClaimName: uploads-pv-claim
+    basePath: /home/subex/charts/stable/airflow-deployment/dss-airflow-operators
 
   ingress:
     name: data-science-studio-app-service-ingress
