@@ -44,7 +44,7 @@ spec:
       - name: dask-data-volume
         hostPath:
           path: {{ .Values.airflow.volumes.basePath }}/dask-data/
-      - name: output
+      - name: output-volume
         hostPath:
           path: {{ .Values.airflow.volumes.basePath }}/output/
 
@@ -95,13 +95,13 @@ spec:
           - mountPath: "/usr/local/airflow/dags"
             name: dags-volume
           - mountPath: "/usr/local/airflow/db"
-            name: data-volume
-          - mountPath: "/usr/local/airflow/data"
             name: db-volume
+          - mountPath: "/usr/local/airflow/data"
+            name: data-volume
           - mountPath: "/usr/local/airflow/modelrepository"
             name: modelrepository-volume
           - mountPath: "/usr/local/airflow/dask-data"
             name: dask-data-volume 
           - mountPath: "/usr/local/airflow/output"
-            name: output
+            name: output-volume
 {{- end -}}
