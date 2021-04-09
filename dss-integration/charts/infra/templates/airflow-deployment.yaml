@@ -24,8 +24,8 @@ spec:
         hostPath:
           path: {{ .Values.airflow.volumes.basePath }}/script/entrypoint.sh
       - name: dags-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/dags/
+        persistentVolumeClaim:
+          claimName: dags-claim
       - name: plugins-volume
         hostPath:
           path: {{ .Values.airflow.volumes.basePath }}/plugins/
