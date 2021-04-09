@@ -81,7 +81,7 @@ data:
     ngp.airflow.service.data=/data/
     ################ airflow end #####################################
     ##############################################TEMPLATE PROPERTIES#############################
-    ngp.airflow.template.path=/template
+    ngp.airflow.template.path=/templates
     ngp.airflow.template.name=dag.vm
     ngp.airflow.template.output=/dags/
     ngp.airflow.template.fileKey=operatorFileName
