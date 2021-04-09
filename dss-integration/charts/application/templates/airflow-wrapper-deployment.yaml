@@ -29,15 +29,15 @@ spec:
             - name: {{ .Values.airflowWrapper.volumeMounts.sharedVolume }}
               mountPath: {{ .Values.airflowWrapper.volumeMounts.sharedMountPath }}
             
-            - mountPath: "/logs"
+            - mountPath: "/logs/"
               name: logs-volume
-            - mountPath: "/dags"
+            - mountPath: "/dags/"
               name: dags-volume
-            - mountPath: "/data"
+            - mountPath: "/data/"
               name: data-volume
-            - mountPath: "/modelrepository"
+            - mountPath: "/modelrepository/"
               name: modelrepository-volume 
-            - mountPath: "/output"
+            - mountPath: "/output/"
               name: output-volume
               
       volumes:
