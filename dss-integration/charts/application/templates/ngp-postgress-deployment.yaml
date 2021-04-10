@@ -24,8 +24,8 @@ spec:
           
           env:
           - name: POSTGRES_DB
-            value: commonservicestest
+            value: datascienceapi
           - name: POSTGRES_USER
-            value: commonservicestest
+            value: postgres
           - name: POSTGRES_PASSWORD
-            value: commonservicestest
+            value: postgres
