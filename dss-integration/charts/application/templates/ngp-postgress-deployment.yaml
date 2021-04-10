@@ -24,7 +24,7 @@ spec:
           
           env:
           - name: POSTGRES_DB
-            value: datascienceapi
+            value: postgres
           - name: POSTGRES_USER
             value: postgres
           - name: POSTGRES_PASSWORD
