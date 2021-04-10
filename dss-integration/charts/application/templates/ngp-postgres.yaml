@@ -5,7 +5,7 @@ metadata:
   labels:
     app: ngp-postgres
 spec:
-  type: ClusterIp
+  type: ClusterIP
   ports:
     - port: 9001
       name: http
