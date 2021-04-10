@@ -5,9 +5,9 @@ metadata:
   labels:
     app: ngp-postgres
 spec:
-  type: NodePort
+  type: ClusterIp
   ports:
-    - port: 5432
+    - port: 9001
       name: http
   selector:
    app: ngp-postgres
