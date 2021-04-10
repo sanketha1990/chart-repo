@@ -42,7 +42,7 @@ application:
         enabled: true
 
     dssServiceService:
-        enabled: true
+        enabled: false
     dssServiceIngress:
-        enabled: true
+        enabled: false
     
