@@ -19,12 +19,12 @@ spec:
           image: postgres:9.6.14
           imagePullPolicy: "IfNotPresent"
           ports:
-            - containerPort: 9001
+            - containerPort: 5432
               name: http
           
           env:
           - name: POSTGRES_DB
-            value: postgres
+            value: datascienceapi
           - name: POSTGRES_USER
             value: postgres
           - name: POSTGRES_PASSWORD
