@@ -7,8 +7,8 @@ volume:
 ########################### Airflow wrapper ########################################
 airflowWrapper:
   name: dss-airflow-service-service
-  #image: docker.io/sankethacr/dss-airflow-wrapper:v8
-  image: docker.io/sankethacr/dss-airflow-wrapper:v6
+  image: docker.io/sankethacr/dss-airflow-wrapper:v8
+  #image: docker.io/sankethacr/dss-airflow-wrapper:v6
   ports:
     containerPort: 8080
     name: http
