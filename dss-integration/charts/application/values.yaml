@@ -7,7 +7,7 @@ volume:
 ########################### Airflow wrapper ########################################
 airflowWrapper:
   name: dss-airflow-service-service
-  image: 10.113.56.67/ngp-develop/dss-airflow-service-service:20210204121655
+  image: docker.io/sankethacr/dss-airflow-wrapper:v6
   ports:
     containerPort: 8080
     name: http
@@ -30,7 +30,7 @@ airflowWrapper:
 ############################ DSS UI (Client) service ########################################
 dssClintApplication:
   name: data-science-studio-app-client
-  image: 10.113.56.67/ngp-develop/data-science-studio-ui:20210324194515
+  image: docker.io/sankethacr/data-science-studio-ui:v1
   replicas: 1
   ports:
     port: 80
@@ -50,7 +50,7 @@ dssClintApplication:
 ############################ DSS middle layer (service) #####################################
 dssServiceApplication:
   name: data-science-studio-app-service
-  image: 10.113.56.67/ngp-develop/data-science-studio-service:20210325145819
+  image: 10.113.56.67/ngp-develop/data-science-studio-service:20210406171032
   replicas: 1
   ports:
     port: 8080
