@@ -27,7 +27,8 @@ application:
     image: docker.io/sankethacr/data-science-studio-ui:v1
     replicas: 1
   dssServiceApplication:
-    image: docker.io/sankethacr/data-science-studio-service:v3
+    #image: docker.io/sankethacr/data-science-studio-service:v3
+    image: 10.113.56.67/ngp-develop/data-science-studio-service:20210406171032
     replicas: 1
   
   services:
