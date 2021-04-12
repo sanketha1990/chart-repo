@@ -7,7 +7,7 @@ volume:
 ########################### Airflow wrapper ########################################
 airflowWrapper:
   name: dss-airflow-service-service
-  image: docker.io/sankethacr/dss-airflow-wrapper:v7
+  image: 10.113.56.67/ngp-develop/dss-airflow-service-service:20210204121655
   ports:
     containerPort: 8080
     name: http
