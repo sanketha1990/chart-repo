@@ -27,7 +27,6 @@ application:
     image: docker.io/subexdss/data-science-studio-ui:v1
     replicas: 1
   dssServiceApplication:
-    #image: docker.io/sankethacr/data-science-studio-service:v3
     image: docker.io/subexdss/data-science-studio-service:v1
     replicas: 1
   
