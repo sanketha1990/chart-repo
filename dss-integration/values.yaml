@@ -1,7 +1,7 @@
 infra:
   namespace: helm-template
   airflow:
-    image: docker.io/sankethacr/dss-airflow-image:v28
+    image: docker.io/subexdss/dss-airflow-image:v1
     replicas: 1
 
   postgres:
@@ -19,16 +19,16 @@ infra:
 application:
   namespace: helm-template
   airflowWrapper: 
-    image: docker.io/sankethacr/dss-airflow-wrapper:v6
+    image: docker.io/subexdss/dss-airflow-wrapper:v1
     name: dss-airflow-wrapper
     replicas: 1
 
   dssClintApplication:
-    image: docker.io/sankethacr/data-science-studio-ui:v1
+    image: docker.io/subexdss/data-science-studio-ui:v1
     replicas: 1
   dssServiceApplication:
     #image: docker.io/sankethacr/data-science-studio-service:v3
-    image: 10.113.56.67/ngp-develop/data-science-studio-service:20210406171032
+    image: docker.io/subexdss/data-science-studio-service:v1
     replicas: 1
   
   services:
