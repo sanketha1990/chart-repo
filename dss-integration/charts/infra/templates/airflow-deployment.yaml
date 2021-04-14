@@ -19,25 +19,25 @@ spec:
       volumes:
       - name: dags-volume
         persistentVolumeClaim:
-          claimName: shared-pvc
+          claimName: shared-pv-claim
       - name: data-volume
         persistentVolumeClaim:
-          claimName: shared-pvc
+          claimName: shared-pv-claim
       - name: logs-volume
         persistentVolumeClaim:
-          claimName: shared-pvc
+          claimName: shared-pv-claim
       - name: db-volume
         persistentVolumeClaim:
-          claimName: shared-pvc
+          claimName: shared-pv-claim
       - name: modelrepository-volume
         persistentVolumeClaim:
-          claimName: shared-pvc
+          claimName: shared-pv-claim
       - name: dask-data-volume
         persistentVolumeClaim:
-          claimName: shared-pvc
+          claimName: shared-pv-claim
       - name: output-volume
         persistentVolumeClaim:
-          claimName: shared-pvc
+          claimName: shared-pv-claim
 
       containers:
         - name: {{ .Values.airflow.name }}
@@ -77,8 +77,6 @@ spec:
           volumeMounts:
           - mountPath: "/usr/local/airflow/logs"
             name: logs-volume
-          - mountPath: "/usr/local/airflow/plugins"
-            name: plugins-volume
           - mountPath: "/usr/local/airflow/dags"
             name: dags-volume
           - mountPath: "/usr/local/airflow/db"

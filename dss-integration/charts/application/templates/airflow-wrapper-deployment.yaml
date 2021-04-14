@@ -48,17 +48,17 @@ spec:
             claimName: {{ .Values.airflowWrapper.volumes.claimName }}
         - name: dags-volume
           persistentVolumeClaim:
-            claimName: shared-pvc
+            claimName: shared-pv-claim
         - name: data-volume
           persistentVolumeClaim:
-            claimName: shared-pvc
+            claimName: shared-pv-claim
         - name: logs-volume
           persistentVolumeClaim:
-            claimName: shared-pvc
+            claimName: shared-pv-claim
         - name: modelrepository-volume
           persistentVolumeClaim:
-            claimName: shared-pvc
+            claimName: shared-pv-claim
         - name: output-volume
           persistentVolumeClaim:
-            claimName: shared-pvc
+            claimName: shared-pv-claim
 {{- end -}}
