@@ -29,7 +29,7 @@ spec:
             - name: {{ .Values.airflowWrapper.volumeMounts.sharedVolume }}
               mountPath: {{ .Values.airflowWrapper.volumeMounts.sharedMountPath }} 
             - mountPath: "/usr/local/airflow/dags"
-              name: shared-volume
+              name: dags-volume
               
       volumes:
         - name: {{ .Values.airflowWrapper.volumeMounts.configVolume }}
@@ -38,7 +38,7 @@ spec:
         - name: {{ .Values.airflowWrapper.volumeMounts.sharedVolume }}
           persistentVolumeClaim:
             claimName: {{ .Values.airflowWrapper.volumes.claimName }}
-        - name: shared-volume
+        - name: dags-volume
           persistentVolumeClaim:
             claimName: shared-pvc
 {{- end -}}
