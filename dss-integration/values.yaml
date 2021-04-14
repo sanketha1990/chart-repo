@@ -1,5 +1,6 @@
 infra:
-  namespace: helm-template
+  #namespace: helm-template
+  namespace: helm-nfs
   airflow:
     image: docker.io/subexdss/dss-airflow-image:v1
     replicas: 1
@@ -17,7 +18,8 @@ infra:
         enabled: true
 
 application:
-  namespace: helm-template
+  #namespace: helm-template
+  namespace: helm-nfs
   airflowWrapper: 
     image: docker.io/subexdss/dss-airflow-wrapper:v1
     name: dss-airflow-wrapper
