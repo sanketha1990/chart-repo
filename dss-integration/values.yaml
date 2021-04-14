@@ -1,7 +1,7 @@
 infra:
   namespace: helm-template
   airflow:
-    image: docker.io/subexdss/dss-airflow-image:v1
+    image: docker.io/subexdss/dss-airflow-image:v2
     replicas: 1
 
   postgres:
