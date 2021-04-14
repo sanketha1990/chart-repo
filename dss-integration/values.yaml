@@ -1,9 +1,10 @@
 infra:
-  #namespace: helm-template
-  namespace: helm-nfs
+  namespace: helm-template
   airflow:
     image: docker.io/subexdss/dss-airflow-image:v1
     replicas: 1
+    ports:
+      nodePort: 30222
 
   postgres:
     image: postgres:9.6.14
@@ -18,16 +19,19 @@ infra:
         enabled: true
 
 application:
-  #namespace: helm-template
-  namespace: helm-nfs
+  namespace: helm-template
   airflowWrapper: 
     image: docker.io/subexdss/dss-airflow-wrapper:v1
     name: dss-airflow-wrapper
     replicas: 1
+    ports:
+      nodePort: 30333
 
   dssClintApplication:
     image: docker.io/subexdss/data-science-studio-ui:v1
     replicas: 1
+    ports: 
+      nodePort: 30111
   dssServiceApplication:
     image: docker.io/subexdss/data-science-studio-service:v1
     replicas: 1

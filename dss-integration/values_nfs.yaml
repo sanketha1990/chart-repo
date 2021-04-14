@@ -1,0 +1,54 @@
+infra:
+  namespace: helm-nfs
+  airflow:
+    image: docker.io/subexdss/dss-airflow-image:v1
+    replicas: 1
+    ports:
+      nodePort: 30223
+
+  postgres:
+    image: postgres:9.6.14
+    replicas: 1
+
+  services:
+    ingress:
+        enabled: true
+    airflow:
+        enabled: true
+    postgres:
+        enabled: true
+
+application:
+  namespace: helm-nfs
+  airflowWrapper: 
+    image: docker.io/subexdss/dss-airflow-wrapper:v1
+    name: dss-airflow-wrapper
+    replicas: 1
+    ports:
+      nodePort: 30334
+
+  dssClintApplication:
+    image: docker.io/subexdss/data-science-studio-ui:v1
+    replicas: 1
+    ports: 
+      nodePort: 30112
+  dssServiceApplication:
+    image: docker.io/subexdss/data-science-studio-service:v1
+    replicas: 1
+  
+  services:
+    airflowWrapperIngress:
+        enabled: true
+    airflowWrapperService:
+        enabled: true
+
+    dssClientService:
+        enabled: true
+    dssClientIngress:
+        enabled: true
+
+    dssServiceService:
+        enabled: true
+    dssServiceIngress:
+        enabled: true
+    

@@ -10,7 +10,7 @@ spec:
   type: NodePort
   ports:
     - port: {{ .Values.airflow.ports.airflowPort }}
-      nodePort: 30222
+      nodePort: {{ .Values.airflow.ports.nodePort }}
       name: {{ .Values.airflow.ports.name }}
   selector:
    app: {{ .Values.airflow.name }}

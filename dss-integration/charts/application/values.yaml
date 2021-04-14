@@ -11,6 +11,7 @@ airflowWrapper:
   ports:
     containerPort: 8080
     name: http
+    nodePort: 30333
   volumeMounts:
     configVolume: config-volume
     configMountPath: /deployments/config

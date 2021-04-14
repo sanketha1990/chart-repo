@@ -10,7 +10,7 @@ spec:
   type: NodePort
   ports:
     - port: {{ .Values.airflowWrapper.ports.containerPort }}
-      nodePort: 30333
+      nodePort: {{ .Values.airflowWrapper.ports.nodePort }}
       name: {{ .Values.airflowWrapper.ports.name }}
   selector:
    app:  {{ .Values.airflowWrapper.name }}
