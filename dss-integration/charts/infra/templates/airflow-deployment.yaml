@@ -18,11 +18,11 @@ spec:
     spec:
       volumes:
       - name: config-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/config/airflow.cfg
+        persistentVolumeClaim:
+          claimName: config-pvc
       - name: script-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/script/entrypoint.sh
+        persistentVolumeClaim:
+          claimName: script-pvc
       - name: dags-volume
         persistentVolumeClaim:
           claimName: dags-pvc
