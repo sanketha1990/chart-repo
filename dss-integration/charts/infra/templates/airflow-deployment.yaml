@@ -17,6 +17,12 @@ spec:
         app: {{ .Values.airflow.name }}
     spec:
       volumes:
+      - name: config-volume
+        hostPath:
+          path: {{ .Values.airflow.volumes.basePath }}/config/airflow.cfg
+      - name: script-volume
+        hostPath:
+          path: {{ .Values.airflow.volumes.basePath }}/script/entrypoint.sh
       - name: dags-volume
         persistentVolumeClaim:
           claimName: dags-pvc
@@ -75,6 +81,10 @@ spec:
             value: {{ .Values.airflow.security.password }}
 
           volumeMounts:
+          - mountPath: "/usr/local/airflow/airflow.cfg"
+            name: config-volume
+          - mountPath: "/entrypoint.sh"
+            name: script-volume
           - mountPath: "/usr/local/airflow/logs"
             name: logs-volume
           - mountPath: "/usr/local/airflow/dags"
