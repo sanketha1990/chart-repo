@@ -27,17 +27,16 @@ spec:
             - name: {{ .Values.airflowWrapper.volumeMounts.configVolume }}
               mountPath: {{ .Values.airflowWrapper.volumeMounts.configMountPath }}
             - name: {{ .Values.airflowWrapper.volumeMounts.sharedVolume }}
-              mountPath: {{ .Values.airflowWrapper.volumeMounts.sharedMountPath }}
-            
-            - mountPath: "/logs"
+              mountPath: {{ .Values.airflowWrapper.volumeMounts.sharedMountPath }} 
+            - mountPath: "/usr/local/airflow/logs"
               name: logs-volume
-            - mountPath: "/dags"
+            - mountPath: "/usr/local/airflow/dags"
               name: dags-volume
-            - mountPath: "/data"
+            - mountPath: "/usr/local/airflow/data"
               name: data-volume
-            - mountPath: "/modelrepository"
+            - mountPath: "/usr/local/airflow/modelrepository"
               name: modelrepository-volume 
-            - mountPath: "/output"
+            - mountPath: "/usr/local/airflow/output"
               name: output-volume
               
       volumes:
@@ -48,18 +47,18 @@ spec:
           persistentVolumeClaim:
             claimName: {{ .Values.airflowWrapper.volumes.claimName }}
         - name: dags-volume
-          hostPath:
-            path: {{ .Values.airflowWrapper.volumes.basePath }}/dags/
+          persistentVolumeClaim:
+            claimName: shared-pvc
         - name: data-volume
-          hostPath:
-            path: {{ .Values.airflowWrapper.volumes.basePath }}/data/
+          persistentVolumeClaim:
+            claimName: shared-pvc
         - name: logs-volume
-          hostPath:
-            path: {{ .Values.airflowWrapper.volumes.basePath }}/logs/
+          persistentVolumeClaim:
+            claimName: shared-pvc
         - name: modelrepository-volume
-          hostPath:
-            path: {{ .Values.airflowWrapper.volumes.basePath }}/modelrepository/
+          persistentVolumeClaim:
+            claimName: shared-pvc
         - name: output-volume
-          hostPath:
-            path: {{ .Values.airflowWrapper.volumes.basePath }}/output/
+          persistentVolumeClaim:
+            claimName: shared-pvc
 {{- end -}}

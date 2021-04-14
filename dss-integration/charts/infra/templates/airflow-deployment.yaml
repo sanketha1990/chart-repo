@@ -17,36 +17,27 @@ spec:
         app: {{ .Values.airflow.name }}
     spec:
       volumes:
-      - name: config-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/config/airflow.cfg
-      - name: script-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/script/entrypoint.sh
       - name: dags-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/dags/
-      - name: plugins-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/plugins/
+        persistentVolumeClaim:
+          claimName: shared-pvc
       - name: data-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/data/
+        persistentVolumeClaim:
+          claimName: shared-pvc
       - name: logs-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/logs/
+        persistentVolumeClaim:
+          claimName: shared-pvc
       - name: db-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/db/
+        persistentVolumeClaim:
+          claimName: shared-pvc
       - name: modelrepository-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/modelrepository/
+        persistentVolumeClaim:
+          claimName: shared-pvc
       - name: dask-data-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/dask-data/
+        persistentVolumeClaim:
+          claimName: shared-pvc
       - name: output-volume
-        hostPath:
-          path: {{ .Values.airflow.volumes.basePath }}/output/
+        persistentVolumeClaim:
+          claimName: shared-pvc
 
       containers:
         - name: {{ .Values.airflow.name }}
@@ -84,10 +75,6 @@ spec:
             value: {{ .Values.airflow.security.password }}
 
           volumeMounts:
-          - mountPath: "/usr/local/airflow/airflow.cfg"
-            name: config-volume
-          - mountPath: "/entrypoint.sh"
-            name: script-volume
           - mountPath: "/usr/local/airflow/logs"
             name: logs-volume
           - mountPath: "/usr/local/airflow/plugins"
