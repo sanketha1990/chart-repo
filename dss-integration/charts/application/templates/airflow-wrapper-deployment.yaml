@@ -28,8 +28,16 @@ spec:
               mountPath: {{ .Values.airflowWrapper.volumeMounts.configMountPath }}
             - name: {{ .Values.airflowWrapper.volumeMounts.sharedVolume }}
               mountPath: {{ .Values.airflowWrapper.volumeMounts.sharedMountPath }} 
+            - mountPath: "/usr/local/airflow/logs"
+              name: logs-volume
             - mountPath: "/usr/local/airflow/dags"
               name: dags-volume
+            - mountPath: "/usr/local/airflow/data"
+              name: data-volume
+            - mountPath: "/usr/local/airflow/modelrepository"
+              name: modelrepository-volume 
+            - mountPath: "/usr/local/airflow/output"
+              name: output-volume
               
       volumes:
         - name: {{ .Values.airflowWrapper.volumeMounts.configVolume }}
@@ -40,5 +48,17 @@ spec:
             claimName: {{ .Values.airflowWrapper.volumes.claimName }}
         - name: dags-volume
           persistentVolumeClaim:
-            claimName: shared-pvc
+            claimName: dags-pvc
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: data-pvc
+        - name: logs-volume
+          persistentVolumeClaim:
+            claimName: logs-pvc
+        - name: modelrepository-volume
+          persistentVolumeClaim:
+            claimName: modelrepository-pvc
+        - name: output-volume
+          persistentVolumeClaim:
+            claimName: output-pvc
 {{- end -}}

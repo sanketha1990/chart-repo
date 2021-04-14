@@ -19,25 +19,25 @@ spec:
       volumes:
       - name: dags-volume
         persistentVolumeClaim:
-          claimName: shared-pv-claim
+          claimName: dags-pvc
       - name: data-volume
         persistentVolumeClaim:
-          claimName: shared-pv-claim
+          claimName: data-pvc
       - name: logs-volume
         persistentVolumeClaim:
-          claimName: shared-pv-claim
+          claimName: logs-pvc
       - name: db-volume
         persistentVolumeClaim:
-          claimName: shared-pv-claim
+          claimName: db-pvc
       - name: modelrepository-volume
         persistentVolumeClaim:
-          claimName: shared-pv-claim
+          claimName: modelrepository-pvc
       - name: dask-data-volume
         persistentVolumeClaim:
-          claimName: shared-pv-claim
+          claimName: dask-data-pvc
       - name: output-volume
         persistentVolumeClaim:
-          claimName: shared-pv-claim
+          claimName: output-pvc
 
       containers:
         - name: {{ .Values.airflow.name }}

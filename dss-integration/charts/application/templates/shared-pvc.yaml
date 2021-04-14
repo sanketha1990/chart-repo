@@ -1,12 +1,100 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: shared-pv-claim
-  namespace: {{ .Values.namespae }}
+  name: dags-pvc
+  namespace: {{ .Values.namespace }}
   labels:
     app: ngp
 spec:
-  storageClassName: nfs-provisioner
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: logs-pvc
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: ngp
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: output-pvc
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: ngp
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: data-pvc
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: ngp
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: modelrepository-pvc
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: ngp
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: dask-data-pvc
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: ngp
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: db-pvc
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: ngp
+spec:
   accessModes:
     - ReadWriteMany
   resources:
