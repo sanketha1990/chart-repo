@@ -1,3 +1,6 @@
+productSuite: hyperSense
+tenant: sys-testing
+includeTenantBasePath: true
 ########################### Common service ########################################
 namespace: helm-template
 volume:

@@ -15,7 +15,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: script-volume
+  name: script-pvc
   namespace: {{ .Values.namespae }}
   labels:
     app: ngp

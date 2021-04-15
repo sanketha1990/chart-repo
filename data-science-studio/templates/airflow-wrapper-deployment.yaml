@@ -5,7 +5,7 @@ metadata:
   name: {{ include "dss-service.api.name" . }}
   namespace: {{ .Values.namespace }}
   labels:
-    {{- include "dms-service.api.labels" . | nindent 4 }}
+    {{- include "dss-service.api.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.airflowWrapper.replicas }}
   selector:
