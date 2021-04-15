@@ -1,7 +1,7 @@
 infra:
   namespace: helm-template
   airflow:
-    image: docker.io/subexdss/dss-airflow-image:v2
+    image: docker.io/subexdss/dss-airflow-image:v3
     replicas: 1
     ports:
       nodePort: 30222
